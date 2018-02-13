@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Clock</title>
+  
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #fcfcfc;
+    }
+    .flexbox-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    p {
+      font-size: 72px;
+    }
+
+  </style>
+</head>
+<body>
+<div class="flexbox-container">
+	<p id="time"></p>
+
+</div>
+  <script type="text/javascript">
+    
+    const getCurrentTime = function() {
+        const time = document.getElementById('time');
+        const date = new Date();
+        const hour = ('0'+date.getHours()).substr(-2);
+        const minutes = ('0'+date.getMinutes()).substr(-2);
+        const seconds = ('0'+date.getSeconds()).substr(-2);
+            
+      console.log(`new hex value is #${hour}${minutes}${seconds}`);
+      
+      document.body.style.backgroundColor = `#${hour}${minutes}${seconds}`;
+      time.textContent = `#${hour}:${minutes}:${seconds}`;
+        
+    }
+    
+setInterval(getCurrentTime, 1000)
+  </script>
+</body>
+</html>
